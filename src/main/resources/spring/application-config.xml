@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
+	    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>   
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<context:annotation-config />
+		<context:component-scan base-package="com.yangwan.*"></context:component-scan>
+		<context:component-scan base-package="com.yangwan.beans"></context:component-scan>
+		<bean id="solution" class="com.yangwan.beans.SolutionBean">
+			<property name="name" value="solution_name"></property>
+			<property name="id" value="5"></property>
+		</bean>
+		<bean id="loginaction" class="com.yangwan.action.LoginAction"></bean>
+		<bean id="loginservice" class="com.yangwan.service.LoginService">
+			<constructor-arg name="name" value="yangwan"></constructor-arg>
+			<constructor-arg name="password" value="beyonddream"></constructor-arg>
+		</bean>
+</beans>
